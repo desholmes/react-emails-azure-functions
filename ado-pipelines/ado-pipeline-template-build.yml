@@ -1,0 +1,40 @@
+steps:
+  - script: |
+      npm run build
+    displayName: 'NPM: Build'
+    enabled: true
+
+  - script: |
+      rm -rf node_modules
+      npm i --omit=dev
+    displayName: 'NPM: install production dependencies'
+    enabled: true
+
+  - task: CopyFiles@2
+    displayName: 'Copy files'
+    inputs:
+      contents: |
+        qTSendEmail/function.json
+        node_modules/**
+        dist/**
+        host.json
+        package.json
+      SourceFolder: ./
+      targetFolder: '$(Build.ArtifactStagingDirectory)'
+      verbose: false
+    enabled: true
+
+  - task: ArchiveFiles@2
+    displayName: 'Create build zip'
+    inputs:
+      rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
+      includeRootFolder: false
+      verbose: false
+    enabled: true
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish build zip artifact: drop'
+    inputs:
+      pathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      artifactName: drop
+    enabled: true

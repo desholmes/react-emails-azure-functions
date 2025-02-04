@@ -1,0 +1,45 @@
+{
+  "name": "azure-functions-email-templates",
+  "version": "1.0.0",
+  "description": "Email templates using Azure Functions & React Email",
+  "author": "dholmes",
+  "license": "ISC",
+  "scripts": {
+    "audit": "npm audit --production --audit-level=critical",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "start": "func start",
+    "start:dev": "npm run build && concurrently \"func start\" \"npm run watch\" -k",
+    "lint": "eslint --ext=ts ./",
+    "lint:ci": "eslint --max-warnings=0 --ext=ts ./",
+    "lint:fix": "eslint --max-warnings=0 --fix --ext=ts ./",
+    "email:dev": "email dev",
+    "email:build": "email build",
+    "email:start": "email start"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.2",
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.1",
+    "@typescript-eslint/eslint-plugin": "6.4.1",
+    "@typescript-eslint/parser": "6.4.1",
+    "eslint": "8.47.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-prettier": "5.0.0",
+    "eslint-plugin-react-refresh": "0.4.16",
+    "prettier": "3.0.2",
+    "react-email": "3.0.6",
+    "typescript": "5.2.2"
+  },
+  "dependencies": {
+    "@azure/functions": "3.5.1",
+    "@react-email/components": "0.0.32",
+    "concurrently": "9.1.2",
+    "react-dom": "19.0.0",
+    "react": "19.0.0",
+    "resend": "4.1.2"
+  },
+  "engines": {
+    "node": ">=20.14.0"
+  }
+}

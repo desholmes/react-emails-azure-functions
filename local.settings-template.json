@@ -1,0 +1,12 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_EXTENSION_VERSION": "~3",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "NODE_ENV": "development",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "QUEUE_NAME": "emails",
+    "RESEND_API_KEY": "replace-me",
+    "RESEND_FROM_EMAIL": "no-reply@test.com"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "bindings": [
+    {
+      "name": "emailMessage",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "%QUEUE_NAME%"
+    }
+  ],
+  "scriptFile": "../dist/qTSendEmail/index.js"
+}
